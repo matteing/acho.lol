@@ -1,0 +1,10 @@
+# Obsidian
+.obsidian/
+.octarine/
+.trash/
+
+# macOS
+.DS_Store
+
+# Claude Code
+.claude/
