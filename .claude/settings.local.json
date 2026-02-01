@@ -1,0 +1,58 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(wc:*)",
+      "Bash(grep:*)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git status:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)"
+    ]
+  },
+  "skills": {
+    "new-entrada": {
+      "type": "prompt",
+      "path": ".claude/skills/new-entrada.md",
+      "description": "Create a new Palabra or Dicho entry"
+    },
+    "new-articulo": {
+      "type": "prompt",
+      "path": ".claude/skills/new-articulo.md",
+      "description": "Create a new semantic hub (Artículo)"
+    },
+    "new-persona": {
+      "type": "prompt",
+      "path": ".claude/skills/new-persona.md",
+      "description": "Create a new Persona profile"
+    },
+    "new-controversia": {
+      "type": "prompt",
+      "path": ".claude/skills/new-controversia.md",
+      "description": "Create a new Controversia entry"
+    },
+    "audit": {
+      "type": "prompt",
+      "path": ".claude/skills/audit.md",
+      "description": "Audit content for completeness issues"
+    },
+    "publish-pendiente": {
+      "type": "prompt",
+      "path": ".claude/skills/publish-pendiente.md",
+      "description": "Move a draft from Pendientes to its proper section"
+    },
+    "link-entries": {
+      "type": "prompt",
+      "path": ".claude/skills/link-entries.md",
+      "description": "Find and add missing wikilinks between entries"
+    },
+    "organize-attachments": {
+      "type": "prompt",
+      "path": ".claude/skills/organize-attachments.md",
+      "description": "Audit and organize media attachments"
+    }
+  }
+}
