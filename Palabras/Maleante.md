@@ -9,6 +9,8 @@ aliases:
   - Maleantes
 ---
 
+> [!warning] Me falta calle, en confi [contribuye a este artículo](https://github.com/matteing/acho.lol) y añade tu conocimiento.
+
 Un criminal, un gángteL, alguien que vive de la calle. Desde el punto más crudo — un tipo que [anda armado](https://www.youtube.com/watch?v=1vHr40ijTP8&list=RD1vHr40ijTP8&start_radio=1) y vende droga.
 
 <iframe src="https://www.youtube.com/embed/8I68chaq2sM?si=rW5fCAZEwjayCxIi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
