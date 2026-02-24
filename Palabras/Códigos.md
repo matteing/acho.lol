@@ -9,6 +9,8 @@ aliases:
   - Códigos de la calle
 ---
 
+> [!warning] Me falta calle, en confi [contribuye a este artículo](https://github.com/matteing/acho.lol) y añade tu conocimiento.
+
 <iframe src="https://www.youtube.com/embed/cwfrH7JSsV8?si=4VaxMah2-Lrbi0oa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 "Los códigos" es un decir en Puerto Rico que puede significar varias cosas:
