@@ -9,7 +9,7 @@ aliases:
   - Códigos de la calle
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cwfrH7JSsV8?si=4VaxMah2-Lrbi0oa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/cwfrH7JSsV8?si=4VaxMah2-Lrbi0oa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 "Los códigos" es un decir en Puerto Rico que puede significar varias cosas:
 
@@ -19,7 +19,7 @@ Las reglas de conducta, lealtad y silencio de la calle. Romper los códigos — 
 
 Esta canción lo describe bien:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HCE8EKmoBIg?si=fa7fcm4iheA5A7YO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/HCE8EKmoBIg?si=fa7fcm4iheA5A7YO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### 2. Los "cheat codes"
 
