@@ -60,12 +60,12 @@ No todo bocón es chota, pero todo chota habló de más.
 
 En el trap y el reguetón boricua, acusar a alguien de **chota** es una de las
 formas más rápidas de cuestionarle los [[Códigos|códigos]], la lealtad y la
-credibilidad callejera. La palabra aparece constantemente en tiraderas y temas
+credibilidad callejera. La palabra aparece constantemente en tiraeras y temas
 de [[Maleante|maleanteo]].
 
 ### Anuel AA — *Arcángel es chota*
 
-El título no deja mucho espacio para interpretación. En esta tiradera, Anuel
+El título no deja mucho espacio para interpretación. En esta tiraera, Anuel
 convierte la acusación completa en el concepto central de una canción de diez
 minutos:
 
@@ -76,7 +76,7 @@ minutos:
 ### La acusación contra YOVNGCHIMI
 
 **YOVNGCHIMI** también ha sido blanco de la etiqueta. La acusación ha circulado
-en tiraderas, edits y videos de terceros; el ejemplo de abajo es un *mashup*
+en tiraeras, edits y videos de terceros; el ejemplo de abajo es un *mashup*
 titulado *RIP YOVNGCHIMI (Chimi Chota)*. En el maleanteo, repetir esa acusación
 puede desgastar la imagen callejera de un artista aunque no demuestre que haya
 cooperado con las autoridades.
