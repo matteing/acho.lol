@@ -6,6 +6,9 @@ tags:
 
 Esta guía explica cómo está organizado acho.lol.
 
+Antes de escribir o editar una entrada, consulta también la
+[[Meta/Guía lingüística|guía lingüística]].
+
 ## Estructura del wiki
 
 El contenido está organizado en las siguientes carpetas:
@@ -94,6 +97,8 @@ nuevas entradas de palabras o dichos. Las secciones son:
 - Usa el término tal cual se dice: `Crical.md`, `La de los pastores.md`.
 - Evita abreviaciones innecesarias.
 - Los acentos y caracteres especiales están permitidos.
+- Sigue las formas preferidas de la [[Meta/Guía lingüística|guía lingüística]]
+  (por ejemplo, **tiraera**, no *tiradera*).
 
 ## Marcadores útiles
 
