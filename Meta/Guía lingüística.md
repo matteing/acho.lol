@@ -31,3 +31,10 @@ variación real del habla puertorriqueña.
 Esta tabla se amplía cuando surjan decisiones editoriales nuevas. No se debe
 extrapolar una entrada y aplicar el mismo cambio mecánicamente a todas las
 palabras parecidas.
+
+## Traducción al inglés
+
+La versión inglesa enseña cultura; no busca reemplazar el español
+puertorriqueño. Conserva en su idioma original los términos, nombres, citas,
+letras y referencias culturales. Traduce o explica solamente lo que ayude a
+entender el significado, el registro, el contexto y el chiste.
