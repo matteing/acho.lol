@@ -1,0 +1,4 @@
+interface:
+  display_name: "Translate acho.lol Content"
+  short_description: "Translate culture for English-language learners"
+  default_prompt: "Use $acho-translate-content to add or refresh an English counterpart without flattening Puerto Rican culture."

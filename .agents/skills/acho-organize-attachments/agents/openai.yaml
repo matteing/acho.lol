@@ -1,0 +1,4 @@
+interface:
+  display_name: "Organize acho.lol Attachments"
+  short_description: "Safely audit and organize encyclopedia media"
+  default_prompt: "Use $acho-organize-attachments to audit media and propose safe cleanup steps."

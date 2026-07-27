@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publish acho.lol Draft"
+  short_description: "Promote a draft into bilingual published content"
+  default_prompt: "Use $acho-publish-draft to finish and publish a viable pending topic in both languages."

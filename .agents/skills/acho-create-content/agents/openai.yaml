@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create acho.lol Content"
+  short_description: "Create accurate bilingual encyclopedia pages"
+  default_prompt: "Use $acho-create-content to create a new culturally accurate acho.lol entry."
