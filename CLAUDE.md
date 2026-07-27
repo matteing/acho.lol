@@ -18,6 +18,7 @@ Palabras/        → Individual word/slang entries
 Dichos/          → Sayings and expressions
 Artículos/       → Semantic hubs grouping related terms
 Personas/        → People profiles
+Fauna/           → Puerto Rican animals and their cultural context
 Controversias/   → Cultural debates
 Pendientes/      → Drafts and planned topics (not published)
 Meta/            → Wiki documentation, templates, tasks

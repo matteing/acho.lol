@@ -17,6 +17,8 @@ El contenido está organizado en las siguientes carpetas:
 - **Artículos/** — Colecciones semánticas (hubs) que agrupan palabras/dichos
   relacionados (ej: Las miles de maneras de decir que hay un caos).
 - **Personas/** — Biografías y perfiles de personas (ej: Fabio).
+- **Fauna/** — Animales de Puerto Rico y su lugar en la cultura boricua (ej:
+  Gongolí).
 - **Controversias/** — Debates y temas polémicos (ej: ¿Empanadilla o
   pastelillo?).
 - **Meta/** — Documentación sobre el wiki, templates, tareas (ej: esta página).
@@ -87,7 +89,9 @@ nuevas entradas de palabras o dichos. Las secciones son:
 2. **Nuevo dicho**: Crea un archivo en `Dichos/` usando el template.
 3. **Nuevo hub**: Crea un archivo en `Artículos/` con lista de términos +
    flowchart si aplica.
-4. **Corrección**: Edita directamente el archivo correspondiente.
+4. **Nueva entrada de fauna**: Crea un archivo en `Fauna/` con información
+   verificable, nombres locales y referencias.
+5. **Corrección**: Edita directamente el archivo correspondiente.
 
 ### Convenciones de nombres de archivo
 
