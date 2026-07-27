@@ -1,10 +1,13 @@
 ---
 title: "La enciclopedia bori pop"
+socialImage: "acho-home-cover-og.png"
+cssclasses:
+  - acho-home
 ---
 
 ¡Dímelo! Bienvenidos a acho.lol, una enciclopedia irreverente, jocosa y 100% boricua.
 
-![La enciclopedia bori pop|281](./_attachments/meantime.jpg)
+![¡acho! — La enciclopedia bori pop](./_attachments/acho-home-cover.webp)
 
 > Por ejemplo, ¿sabías que en Puerto Rico una galleta puede ser
 > [[Las miles de maneras de dar un golpe|algo indeseable]]?
