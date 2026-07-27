@@ -1,0 +1,4 @@
+interface:
+  display_name: "Link acho.lol Entries"
+  short_description: "Add useful bilingual Obsidian wikilinks"
+  default_prompt: "Use $acho-link-entries to find and add high-value internal links without overlinking."

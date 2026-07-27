@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audit acho.lol Content"
+  short_description: "Audit links, metadata, translations, and media"
+  default_prompt: "Use $acho-audit-content to produce a read-only content quality report."
