@@ -24,6 +24,7 @@ hasta los aspectos más serios de nuestra cultura.
 - **[[Palabras/index|Palabras]]** — El léxico puertorriqueño.
 - **[[Artículos/index|Artículos]]** — Hubs temáticos que conectan conceptos.
 - **[[Personas/index|Personas]]** — Biografías y perfiles.
+- **[[Fauna/index|Fauna]]** — Los animales de Puerto Rico y sus nombres boricuas.
 - **[[Controversias/index|Controversias]]** — Las eternas peleas boricuas.
 
 ## ¡Ayúdame!
