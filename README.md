@@ -15,6 +15,7 @@ El sitio se genera con [Quartz](https://quartz.jzhao.xyz/) y este repo se consum
 ├── Dichos/          Sayings and expressions / Frases y expresiones
 ├── Artículos/       Semantic hubs grouping related concepts / Hubs semánticos
 ├── Personas/        Biographies and profiles / Biografías y perfiles
+├── Fauna/           Puerto Rican animals / Animales de Puerto Rico
 ├── Controversias/   The eternal Boricua debates / Las eternas peleas boricuas
 ├── Pendientes/      Drafts and planned topics / Borradores y temas por escribir
 ├── Meta/            Wiki docs, templates, tasks / Documentación, templates, tareas
