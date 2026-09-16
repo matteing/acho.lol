@@ -4,17 +4,27 @@ import type { WikiPage } from '@/lib/wiki/types';
 import { t } from '@/i18n/translate';
 interface Props {
   page: WikiPage;
+  title: string;
 }
-const { page } = Astro.props;
-const headings = page.headings.filter((heading) => heading.depth <= 3);
+const { page, title } = Astro.props;
+const headings = page.headings;
+const firstLevel = Math.min(...headings.map((heading) => heading.depth));
 ---
 
 {headings.length > 0 && (
   <nav class="table-of-contents" aria-label={t(page.lang, 'toc')}>
     <h2 class="article-rail-heading">{t(page.lang, 'toc')}</h2>
-    <ol>
+    <ol role="list">
+      <li>
+        <a class="toc-link" href="#main-content">
+          {title}
+        </a>
+      </li>
       {headings.map((heading) => (
-        <li class:list={{ 'toc-nested': heading.depth > 2 }}>
+        <li
+          class:list={{ 'toc-nested': heading.depth > firstLevel }}
+          style={`--toc-depth: ${heading.depth - firstLevel}`}
+        >
           <a class="toc-link" href={`#${heading.slug}`}>
             {heading.text}
           </a>

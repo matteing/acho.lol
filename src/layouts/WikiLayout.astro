@@ -80,7 +80,7 @@ const indexable = isIndexable(page);
         <ArticleFooter lang={page.lang} />
       </main>
       <aside class="article-sidebar" data-pagefind-ignore>
-        <TableOfContents page={page} />
+        <TableOfContents page={page} title={title} />
         <Backlinks page={page} pages={pages} />
       </aside>
     </div>

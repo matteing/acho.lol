@@ -27,7 +27,7 @@
 .table-of-contents a.toc-link {
   position: relative;
   display: block;
-  padding: 6px 0 6px 14px;
+  padding: 6px 4px 6px calc(14px + var(--toc-depth, 0) * 12px);
   color: var(--muted);
   font-size: 13px;
   font-weight: 400;
@@ -36,8 +36,11 @@
 }
 
 .table-of-contents .toc-nested a.toc-link {
-  padding-left: 26px;
   font-size: 12px;
+}
+
+.table-of-contents a.toc-link:focus-visible {
+  outline-offset: -2px;
 }
 
 .table-of-contents a.toc-link::before {

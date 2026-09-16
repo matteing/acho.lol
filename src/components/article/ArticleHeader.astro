@@ -22,8 +22,7 @@ const updated = page.lastmod
   <h1 data-pagefind-meta="title">{title}</h1>
   {page.kind !== 'home' && updated && (
     <p class="article-meta" data-pagefind-ignore>
-      <span>{t(page.lang, 'updated')}</span>
-      <time datetime={page.lastmod}>{updated}</time>
+      <time datetime={page.lastmod}>{`${t(page.lang, 'updated')} ${updated}`}</time>
     </p>
   )}
 </header>

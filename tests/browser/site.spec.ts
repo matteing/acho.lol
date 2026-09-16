@@ -258,7 +258,7 @@ test('inline video, last-updated dates, and theme preference survive navigation'
   await expect(metadata).toContainText('Actualizado');
   // Códigos was published at 07:11:06; the displayed value must use its later lastmod.
   await expect(metadata.locator('time')).toHaveAttribute('datetime', '2026-02-24T07:18:07Z');
-  await expect(metadata.locator('time')).toHaveText(/24.*feb.*2026/i);
+  await expect(metadata.locator('time')).toHaveText(/^Actualizado 24.*feb.*2026$/i);
   await expect(metadata).not.toContainText('Se lee en');
   await page.locator('[data-toggle-theme]').first().click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
