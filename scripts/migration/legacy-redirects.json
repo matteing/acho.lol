@@ -1,0 +1,167 @@
+{
+  "source": "Verified public alias URLs from https://acho.lol",
+  "captured": "2026-09-16",
+  "redirects": [
+    {
+      "source": "/C%C3%B3digos-de-la-calle/",
+      "destination": "/en/Palabras/C%C3%B3digos/"
+    },
+    {
+      "source": "/Cabrona/",
+      "destination": "/en/Palabras/Cabr%C3%B3n/"
+    },
+    {
+      "source": "/Cabroncito/",
+      "destination": "/en/Palabras/Cabr%C3%B3n/"
+    },
+    {
+      "source": "/Cabrones/",
+      "destination": "/en/Palabras/Cabr%C3%B3n/"
+    },
+    {
+      "source": "/Chotas/",
+      "destination": "/en/Palabras/Chota/"
+    },
+    {
+      "source": "/Chotear/",
+      "destination": "/en/Palabras/Chota/"
+    },
+    {
+      "source": "/Choteo/",
+      "destination": "/en/Palabras/Chota/"
+    },
+    {
+      "source": "/Dejarse-coger-de-pendejo/",
+      "destination": "/en/Dichos/Coger-de-pendejo/"
+    },
+    {
+      "source": "/El-calent%C3%B3n/",
+      "destination": "/en/Palabras/Calent%C3%B3n/"
+    },
+    {
+      "source": "/Gilberto-De-Jes%C3%BAs/",
+      "destination": "/en/Personas/Mi-Pana-Gilito/"
+    },
+    {
+      "source": "/Gilito/",
+      "destination": "/en/Personas/Mi-Pana-Gilito/"
+    },
+    {
+      "source": "/Gongol%C3%B3/",
+      "destination": "/Fauna/Gongol%C3%AD/"
+    },
+    {
+      "source": "/Gongol%C3%B3n/",
+      "destination": "/Fauna/Gongol%C3%AD/"
+    },
+    {
+      "source": "/Gongolo/",
+      "destination": "/Fauna/Gongol%C3%AD/"
+    },
+    {
+      "source": "/Gungul%C3%A9n/",
+      "destination": "/Fauna/Gongol%C3%AD/"
+    },
+    {
+      "source": "/La-combi-completa/",
+      "destination": "/en/Palabras/Combi/"
+    },
+    {
+      "source": "/La-combi/",
+      "destination": "/en/Palabras/Combi/"
+    },
+    {
+      "source": "/La-Iupi/",
+      "destination": "/en/Palabras/Iupi/"
+    },
+    {
+      "source": "/La-UPR/",
+      "destination": "/en/Palabras/Iupi/"
+    },
+    {
+      "source": "/Los-c%C3%B3digos/",
+      "destination": "/en/Palabras/C%C3%B3digos/"
+    },
+    {
+      "source": "/Mal-rayo-te-parta/",
+      "destination": "/en/Dichos/Marrayo-parta/"
+    },
+    {
+      "source": "/Maleanteo/",
+      "destination": "/en/Palabras/Maleante/"
+    },
+    {
+      "source": "/Maleantes/",
+      "destination": "/en/Palabras/Maleante/"
+    },
+    {
+      "source": "/Marrayoparta/",
+      "destination": "/en/Dichos/Marrayo-parta/"
+    },
+    {
+      "source": "/Me-rayo-parta/",
+      "destination": "/en/Dichos/Marrayo-parta/"
+    },
+    {
+      "source": "/Milpi%C3%A9s/",
+      "destination": "/Fauna/Gongol%C3%AD/"
+    },
+    {
+      "source": "/Mota/",
+      "destination": "/en/Palabras/Pasto/"
+    },
+    {
+      "source": "/No-me-cojas-de-pendejo/",
+      "destination": "/en/Dichos/Coger-de-pendejo/"
+    },
+    {
+      "source": "/NPI/",
+      "destination": "/en/Dichos/Ni-puta-idea/"
+    },
+    {
+      "source": "/Pa'l-calent%C3%B3n/",
+      "destination": "/en/Palabras/Calent%C3%B3n/"
+    },
+    {
+      "source": "/Pasto-y-mota/",
+      "destination": "/en/Palabras/Pasto/"
+    },
+    {
+      "source": "/Pel%C3%BA/",
+      "destination": "/en/Palabras/Pel%C3%BAs/"
+    },
+    {
+      "source": "/Pel%C3%BAa/",
+      "destination": "/en/Palabras/Pel%C3%BAs/"
+    },
+    {
+      "source": "/Pel%C3%BAes/",
+      "destination": "/en/Palabras/Pel%C3%BAs/"
+    },
+    {
+      "source": "/Se-comi%C3%B3-un-tat%C3%ADn/",
+      "destination": "/en/Dichos/Se-comi%C3%B3-un-tat%C3%ADn/"
+    },
+    {
+      "source": "/Se-comi%C3%B3-un-Tat%C3%ADn/",
+      "destination": "/Dichos/Se-comi%C3%B3-un-tat%C3%ADn/"
+    },
+    {
+      "source": "/Se-form%C3%B3-la-de-los-pastores/",
+      "destination": "/en/Dichos/La-de-los-pastores/"
+    },
+    {
+      "source": "/Se-form%C3%B3-la-de-San-Quint%C3%ADn/",
+      "destination": "/en/Dichos/La-de-los-pastores/"
+    },
+    {
+      "source": "/Se-form%C3%B3-la-madre-de-los-tomates/",
+      "destination": "/en/Dichos/La-madre-de-los-tomates/"
+    },
+    {
+      "source": "/Te-comiste-un-Tat%C3%ADn/",
+      "destination": "/en/Dichos/Se-comi%C3%B3-un-tat%C3%ADn/"
+    }
+  ],
+  "unavailable": []
+}

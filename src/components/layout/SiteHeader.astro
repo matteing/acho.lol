@@ -1,0 +1,30 @@
+---
+import './navigation.css';
+import type { Language } from '@/i18n/locales';
+import { t } from '@/i18n/translate';
+import Icon from '@/components/ui/Icon.astro';
+import Wordmark from '@/components/ui/Wordmark.astro';
+
+interface Props {
+  lang: Language;
+}
+const { lang } = Astro.props;
+---
+
+<header class="mobile-header" data-pagefind-ignore>
+  <Wordmark lang={lang} />
+  <div class="mobile-actions">
+    <button class="icon-button" data-open-search aria-label={t(lang, 'search')}>
+      <Icon name="search" />
+    </button>
+    <button
+      class="icon-button"
+      data-open-menu
+      aria-label={t(lang, 'menu')}
+      aria-controls="site-sidebar"
+      aria-expanded="false"
+    >
+      <Icon name="menu" />
+    </button>
+  </div>
+</header>

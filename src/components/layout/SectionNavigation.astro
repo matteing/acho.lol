@@ -1,0 +1,47 @@
+---
+import type { WikiPage } from '@/lib/wiki/types';
+import { t, sectionLabel } from '@/i18n/translate';
+import Icon from '@/components/ui/Icon.astro';
+interface Props {
+  page: WikiPage;
+  pages: WikiPage[];
+}
+const { page, pages } = Astro.props;
+const local = pages.filter((p) => p.lang === page.lang);
+const sections = [...new Set(local.map((p) => p.section).filter(Boolean))].sort((a, b) =>
+  sectionLabel(page.lang, a).localeCompare(sectionLabel(page.lang, b), page.lang),
+);
+---
+
+<nav class="section-navigation" aria-label={t(page.lang, 'navigation')}>
+  {sections.map((section) => {
+    const landing = local.find((p) => p.kind === 'section' && p.section === section);
+    const children = local
+      .filter((p) => p.kind === 'article' && p.section === section)
+      .sort((a, b) => a.title.localeCompare(b.title, page.lang));
+    return (
+      <details class="nav-section" open={page.section === section}>
+        <summary>
+          <Icon name="chevron" size={17} />
+          <span>{sectionLabel(page.lang, section)}</span>
+        </summary>
+        <ul>
+          {landing && (
+            <li>
+              <a href={landing.url} aria-current={page.id === landing.id ? 'page' : undefined}>
+                {t(page.lang, 'entries')} <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          )}
+          {children.map((child) => (
+            <li>
+              <a href={child.url} aria-current={page.id === child.id ? 'page' : undefined}>
+                {child.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    );
+  })}
+</nav>

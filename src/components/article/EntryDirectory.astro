@@ -1,0 +1,59 @@
+---
+import type { Language, WikiPage } from '@/lib/wiki/types';
+import { t } from '@/i18n/translate';
+
+interface Props {
+  pages: WikiPage[];
+  lang: Language;
+}
+const { pages, lang } = Astro.props;
+---
+
+<section class="entry-directory" aria-label={t(lang, 'entries')}>
+  <h2>{t(lang, 'entries')}</h2>
+  <ul>
+    {pages.map((page) => (
+      <li>
+        <a class="entry-title" href={page.url} data-preview={page.url}>
+          {page.title}
+          <span aria-hidden="true">↗</span>
+        </a>
+        {page.description && <p>{page.description}</p>}
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .entry-directory {
+    margin-top: 2rem;
+  }
+  .entry-directory ul {
+    list-style: none;
+    padding: 0;
+  }
+  .entry-directory li {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border, #e9e2df);
+  }
+  .entry-directory .entry-title {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    background: none;
+    font-weight: 650;
+    text-decoration: none;
+  }
+  .entry-directory .entry-title span {
+    opacity: 0.45;
+  }
+  .entry-directory p {
+    font-size: 0.92em;
+    margin: 0.45rem 0 0;
+    opacity: 0.8;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

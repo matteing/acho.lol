@@ -1,0 +1,32 @@
+{
+  "note": "Unwritten targets already present in the imported Quartz source. Rendered as labeled text, never broken links. New missing references remain build errors; remove each exception when its article is written.",
+  "issues": [
+    {
+      "source": "es/Artículos/Las miles de maneras de dar una golpiza.md",
+      "target": "Dar como una pandereta de pentecostal",
+      "code": "missing-link"
+    },
+    {
+      "source": "es/Artículos/Las miles de maneras de dar una golpiza.md",
+      "target": "Una galleta",
+      "code": "missing-link"
+    },
+    {
+      "source": "es/Artículos/Las miles de maneras de dar una golpiza.md",
+      "target": "darle-como-pillo-de-pelicula",
+      "code": "missing-link"
+    },
+    { "source": "es/Dichos/Coger de pendejo.md", "target": "Pendejo", "code": "missing-link" },
+    { "source": "es/Palabras/Combi.md", "target": "Chocha", "code": "missing-link" },
+    { "source": "es/Palabras/Códigos.md", "target": "Ponerse bruto", "code": "missing-link" },
+    { "source": "es/Palabras/Iupi.md", "target": "Residente", "code": "missing-link" },
+    { "source": "es/Palabras/Iupi.md", "target": "Tempo", "code": "missing-link" },
+    { "source": "es/Palabras/Iupi.md", "target": "Residente v. Tempo", "code": "missing-link" },
+    { "source": "es/Palabras/Maleante.md", "target": "Mamao", "code": "missing-link" },
+    { "source": "es/Personas/Fabio.md", "target": "Mora", "code": "missing-link" },
+    { "source": "es/Personas/Fabio.md", "target": "Jhayco v. Mora", "code": "missing-link" },
+    { "source": "es/Personas/Fabio.md", "target": "Tiraera", "code": "missing-link" },
+    { "source": "es/Personas/Fabio.md", "target": "Ankhal", "code": "missing-link" },
+    { "source": "en/index.md", "target": "en/Fauna/index", "code": "missing-link" }
+  ]
+}

@@ -1,27 +1,38 @@
 ---
 name: acho-publish-draft
-description: Promote an acho.lol draft from `Pendientes/` into the correct published section and complete its bilingual integration. Use when Codex is asked to publish, graduate, finish, or move a pending topic; do not publish an empty stub or guess missing factual content.
+description: Promote an acho.lol pending entry into its final content section and complete bilingual integration. Use to finish, graduate, publish, or move a pending topic; do not publish an empty stub or guess missing facts. This manages repository content, not deployment by itself.
 ---
 
 # Publish an acho.lol draft
 
-1. Read the requested draft, `AGENTS.md`, the linguistic guide, and an analogous
-   page in the likely destination section.
-2. Determine whether the draft belongs in `Palabras/`, `Dichos/`, `Artículos/`,
-   `Personas/`, or `Controversias/`. Ask only if the destination materially
-   changes the intended page and cannot be inferred.
-3. Require enough supported material for a useful published page. If the draft
-   lacks core facts, examples, or context, keep it pending and report exactly
-   what is needed instead of filling gaps with guesses.
-4. Move the Spanish file to its final exact-title slug, normalize frontmatter
-   and structure, and move associated media to the closest appropriate
-   `_attachments/` directory.
-5. Update references from `Pendientes/Temas por escribir.md` and directly
-   related pages. Do not add a manual list to the destination `index.md`.
-6. Create or update the matching English page with
-   `$acho-translate-content`. Update both language trees' wikilinks and media
-   paths.
-7. Remove stale draft-only warnings or tags only when the published content now
-   resolves them.
-8. Verify old-path references are gone, new targets exist, both language pages
-   are coherent, and `git diff --check` passes.
+Read the draft, [AGENTS.md](../../../AGENTS.md), the
+[linguistic guide](<../../../content/es/Meta/Guía lingüística.md>), the
+[editorial workflow](../../../docs/editorial-workflow.md), and an analogous page
+in the likely destination section.
+
+1. Infer the correct section in `content/es/`: `Palabras`, `Dichos`, `Artículos`,
+   `Personas`, `Fauna`, or `Controversias`. Ask only when an unresolved choice
+   materially changes the intended entry.
+2. Require supported facts, examples, and context sufficient for a useful entry.
+   Otherwise leave it pending and report the concrete gaps. `Pendientes` pages
+   may already be publicly accessible; `draft: true` is the actual exclusion
+   flag.
+3. Move the Spanish file to its final exact-title path. Preserve its
+   `translationKey` and date provenance, refine frontmatter and structure, and
+   add its previous public URL to `redirects` when it was already published.
+   Alternate names remain `aliases`; they are not redirect paths.
+4. Move associated originals under `public/<Section>/_attachments/` only when
+   useful and authorized by the promotion's scope. Update all consumers and
+   retain shared root-relative URLs across languages.
+5. Update `content/es/Pendientes/Temas por escribir.md` and directly related
+   pages. The final category's `index.md` gets no manual entry list.
+6. Create or update the English counterpart with `$acho-translate-content`.
+   Move an existing counterpart, retain the shared translation key, preserve
+   its old URL when needed, and repair references in both languages.
+7. Remove obsolete status tags or warnings only when their uncertainty is
+   resolved. Remove `draft: true` only when public generation is intended.
+8. Run `pnpm audit:content`, `pnpm build`, and `pnpm verify`. Validate
+   new destinations, translation switching, and old-URL redirects; run
+   `git diff --check` in a Git checkout. If the migration URL baseline flags an
+   intentional move, demonstrate that its old route redirects correctly before
+   proposing a narrowly scoped baseline update—do not discard the check.

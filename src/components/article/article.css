@@ -1,0 +1,65 @@
+/* Article title, modification date, and footer. */
+
+.article-header {
+  margin-bottom: 26px;
+}
+.article-header h1 {
+  font-size: clamp(29px, 2.5vw, 40px);
+  margin: 0 0 10px;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+.article-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 23px;
+  margin-top: 64px;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.article-footer a {
+  font-weight: 700;
+}
+@media (max-width: 800px) {
+  .article-header h1 {
+    font-size: 32px;
+    letter-spacing: -0.04em;
+  }
+  .article-header {
+    margin-bottom: 24px;
+  }
+  .article-meta {
+    font-size: 13px;
+  }
+  .article-footer {
+    margin-top: 40px;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .article-footer span {
+    flex-basis: 100%;
+  }
+}
+@media (max-width: 380px) {
+  .article-header h1 {
+    font-size: 29px;
+  }
+}
+
+@media print {
+  .article-header h1 {
+    font-size: 26pt;
+  }
+}

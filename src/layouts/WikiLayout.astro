@@ -1,0 +1,93 @@
+---
+import '@/styles/global.css';
+import '@/components/layout/layout.css';
+import type { WikiPage } from '@/lib/wiki/types';
+import { getNavigationContext } from '@/lib/navigation';
+import { isIndexable } from '@/lib/seo/metadata';
+import { sectionLabel, t } from '@/i18n/translate';
+import ArticleHeader from '@/components/article/ArticleHeader.astro';
+import ArticleFooter from '@/components/article/ArticleFooter.astro';
+import Backlinks from '@/components/article/Backlinks.astro';
+import TableOfContents from '@/components/article/TableOfContents.astro';
+import Breadcrumbs from '@/components/layout/Breadcrumbs.astro';
+import SiteHeader from '@/components/layout/SiteHeader.astro';
+import NoScriptNavigation from '@/components/layout/NoScriptNavigation.astro';
+import SiteSidebar from '@/components/layout/SiteSidebar.astro';
+import Seo from '@/components/seo/Seo.astro';
+import LinkPreview from '@/components/preview/LinkPreview.astro';
+import SearchDialog from '@/components/search/SearchDialog.astro';
+
+interface Props {
+  page: WikiPage;
+  pages: WikiPage[];
+  title?: string;
+  description?: string;
+}
+const {
+  page,
+  pages,
+  title = page.title,
+  description = page.description || page.excerpt,
+} = Astro.props;
+const navigation = getNavigationContext(page, pages);
+const indexable = isIndexable(page);
+---
+
+<!doctype html>
+<html lang={page.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fcf8f4" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <Seo page={page} pages={pages} title={title} description={description} />
+    <script is:inline>
+      // Apply the saved theme before first paint; blocked storage is harmless.
+      try {
+        const theme = localStorage.getItem('acho-theme');
+        if (theme === 'dark' || theme === 'light') document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+  </head>
+  <body data-language={page.lang} data-pagefind-ignore={!indexable ? 'all' : undefined}>
+    <a class="skip-link" href="#main-content">
+      {t(page.lang, 'skip')}
+    </a>
+    <SiteHeader lang={page.lang} />
+    <NoScriptNavigation lang={page.lang} navigation={navigation} />
+    <div class="drawer-backdrop" hidden></div>
+    <div class="site-shell">
+      <SiteSidebar page={page} pages={pages} navigation={navigation} />
+      <main id="main-content" class="article-main" tabindex="-1">
+        <Breadcrumbs page={page} title={title} section={navigation.section} />
+        <article
+          data-pagefind-body={indexable ? '' : undefined}
+          data-aliases={page.aliases.join(' ')}
+          data-pagefind-index-attrs="data-aliases"
+          data-pagefind-filter={`section:${sectionLabel(page.lang, page.section) || t(page.lang, 'home')}`}
+        >
+          <ArticleHeader page={page} title={title} />
+          <div class="article-content">
+            <slot />
+          </div>
+        </article>
+        {page.backlinks.length > 0 && (
+          <div class="mobile-backlinks" data-pagefind-ignore>
+            <Backlinks page={page} pages={pages} />
+          </div>
+        )}
+        <ArticleFooter lang={page.lang} />
+      </main>
+      <aside class="article-sidebar" data-pagefind-ignore>
+        <TableOfContents page={page} />
+        <Backlinks page={page} pages={pages} />
+      </aside>
+    </div>
+    <SearchDialog lang={page.lang} />
+    <LinkPreview />
+    <script>
+      import '@/scripts/site';
+    </script>
+  </body>
+</html>

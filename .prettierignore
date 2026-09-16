@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+.cache/
+test-results/
+playwright-report/
+pnpm-lock.yaml
+content/
+public/
+scripts/assets/
+.husky/_/

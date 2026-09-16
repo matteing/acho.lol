@@ -1,0 +1,17 @@
+---
+import WikiLayout from '../layouts/WikiLayout.astro';
+import { getPages, syntheticPage } from '@/lib/wiki/queries';
+import { t } from '@/i18n/translate';
+const page = syntheticPage('es', t('es', 'notFound'), '/404.html');
+const pages = await getPages();
+---
+
+<WikiLayout page={page} pages={pages}>
+  <p>No encontramos lo que buscas. Quizás cambió de lugar, o todavía está por escribir.</p>
+  <p>
+    <a href="/">Volver al inicio</a> ·{' '}
+    <a href="/en/" lang="en">
+      Explore in English
+    </a>
+  </p>
+</WikiLayout>

@@ -1,28 +1,39 @@
 ---
 name: acho-audit-content
-description: Audit acho.lol Markdown for broken wikilinks, invalid frontmatter, stale drafts, thin pages, bilingual mirror drift, language-crossing links, and attachment problems. Use for content QA, consistency reviews, migration checks, or pre-publication reports; remain read-only unless the user also asks for fixes.
+description: Audit acho.lol Markdown for broken links, invalid frontmatter, stale drafts, thin pages, bilingual drift, unintended language-crossing links, and attachment problems. Use for content QA, consistency reviews, migration checks, or publication reports; remain read-only unless fixes are requested.
 ---
 
 # Audit acho.lol content
 
-Treat an audit as read-only unless the user explicitly asks to fix findings.
+Treat an audit as read-only unless fixes are requested. Read
+[AGENTS.md](../../../AGENTS.md), the
+[linguistic guide](<../../../content/es/Meta/Guía lingüística.md>), and the
+[Astro editorial workflow](../../../docs/editorial-workflow.md).
 
-1. Inventory published Spanish Markdown and English Markdown below `en/`.
-   Exclude repository instructions, templates when appropriate, and generated or
-   hidden tooling directories.
-2. Check YAML frontmatter syntax, titles, useful tags, English `lang: en`, and
-   same-slug Spanish/English parity. Do not require empty `aliases` arrays.
-3. Extract Obsidian wikilinks while ignoring embeds, external URLs, code fences,
-   and aliases after `|`. Resolve explicit paths and flag ambiguous title-only
-   links separately from definitely missing targets.
-4. Flag English pages that link into the Spanish tree unintentionally and
-   Spanish pages that use `en/` unintentionally.
-5. Report stale `#wip` or `#stub` markers, warning callouts that no longer match
-   the page, near-empty published pages, and orphan pages with no inbound links.
-6. Check attachments for missing references, unreferenced files, duplicate
-   hashes, generic names, and placement far from their only consumers.
-7. Check category indexes for a title and short introduction. Do not expect or
-   recommend manual entry lists because Quartz generates folder listings.
-8. Present evidence with file paths and line numbers, grouped as errors,
-   warnings, and informational cleanup. Distinguish confirmed defects from
-   suggestions and false-positive risks.
+1. Inventory Spanish pages in `content/es/` and English pages in `content/en/`.
+   Exclude tooling and generated files. Include public `Pendientes` entries;
+   distinguish `draft: true` exclusions and public-but-noindex templates.
+2. Check frontmatter syntax, titles, descriptions, relevant tags, locale,
+   genuine aliases, stable translation keys, and date provenance. Pair pages
+   by `translationKey`; matching relative filenames remain the usual convention.
+   Do not require empty metadata fields or invent a missing translation.
+3. Run `pnpm audit:content` for the actual Markdown parser's link, heading,
+   asset, translation, and baseline URL checks. It ignores literal code examples
+   and distinguishes known source omissions from new errors. Do not expand
+   `content-known-issues.json` just to make a failing audit pass.
+4. Inspect ordinary links as well as wikilinks. Separate ambiguous titles from
+   missing destinations and intentional cross-language references from mistakes.
+5. Report stale editorial status, uncertainty callouts that no longer fit,
+   near-empty public entries, and useful orphan-page connections. Tags such as
+   `wip` and `stub` are metadata, not automatic publication controls.
+6. Inspect originals in `public/**/_attachments/` for missing consumers,
+   duplicate hashes, generic names, and misplaced assets. Both languages share
+   root-relative URLs. Exclude generated derivatives and search the repository
+   for non-Markdown consumers before reporting an orphan.
+7. Category `index.md` files need a title and introduction. Astro generates the
+   directory listing; do not recommend hand-maintained inventories.
+8. Present evidence with file paths and line numbers. Separate confirmed errors,
+   warnings, and optional cleanup, including false-positive risks. Existing
+   `dist/` may be checked with `pnpm verify` and `pnpm verify:seo` when its
+   build is known to match current content; do not mistake stale output for a
+   source defect.

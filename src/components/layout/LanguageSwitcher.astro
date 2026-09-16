@@ -1,0 +1,57 @@
+---
+import type { WikiPage } from '@/lib/wiki/types';
+import type { NavigationContext } from '@/lib/navigation';
+import { homeUrl } from '@/i18n/locales';
+import { t } from '@/i18n/translate';
+
+interface Props {
+  page: WikiPage;
+  navigation: NavigationContext;
+}
+const { page, navigation } = Astro.props;
+const { translation, otherLanguage } = navigation;
+---
+
+<nav class="language-switch" aria-label={t(page.lang, 'language')}>
+  {page.lang === 'es' ? (
+    <>
+      <span aria-current="page">ES</span>
+      <span class="language-divider" aria-hidden="true">
+        /
+      </span>
+      {translation ? (
+        <a href={translation.url} lang="en" hreflang="en">
+          English
+        </a>
+      ) : (
+        <span class="unavailable-language" lang="en">
+          English
+        </span>
+      )}
+    </>
+  ) : (
+    <>
+      {translation ? (
+        <a href={translation.url} lang="es" hreflang="es">
+          Español
+        </a>
+      ) : (
+        <span class="unavailable-language" lang="es">
+          Español
+        </span>
+      )}
+      <span class="language-divider" aria-hidden="true">
+        /
+      </span>
+      <span aria-current="page">EN</span>
+    </>
+  )}
+</nav>
+{!translation && page.sourcePath && (
+  <div class="translation-notice">
+    <p>{t(page.lang, 'unavailableTranslation')}</p>
+    <a href={homeUrl(otherLanguage)} hreflang={otherLanguage}>
+      {t(page.lang, 'otherLanguageHome')} <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+)}

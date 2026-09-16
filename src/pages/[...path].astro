@@ -1,0 +1,21 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import WikiLayout from '@/layouts/WikiLayout.astro';
+import EntryDirectory from '@/components/article/EntryDirectory.astro';
+import { getPages, sectionChildren } from '@/lib/wiki/queries';
+import { pageRoutes } from '@/lib/wiki/routes';
+
+export const getStaticPaths = (async () => pageRoutes(await getPages())) satisfies GetStaticPaths;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { page, view } = Astro.props;
+
+// Unlike config redirects, Astro.redirect expects an already encoded URL.
+if (view === 'redirect') return Astro.redirect(page.url, 301);
+const pages = await getPages();
+const children = sectionChildren(page, pages);
+---
+
+<WikiLayout page={page} pages={pages}>
+  <Fragment set:html={page.html} />
+  {children.length > 0 && <EntryDirectory pages={children} lang={page.lang} />}
+</WikiLayout>

@@ -1,0 +1,17 @@
+---
+import './article.css';
+import type { Language } from '@/i18n/locales';
+import { homeUrl } from '@/i18n/locales';
+import { t } from '@/i18n/translate';
+import { siteConfig } from '@/site.config';
+
+interface Props {
+  lang: Language;
+}
+const { lang } = Astro.props;
+---
+
+<footer class="article-footer" data-pagefind-ignore>
+  <a href={homeUrl(lang)}>{siteConfig.name}</a>
+  <span>{t(lang, 'footer')}</span>
+</footer>

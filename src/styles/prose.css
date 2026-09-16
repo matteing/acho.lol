@@ -1,0 +1,315 @@
+/* Global typography for rendered Markdown and rich media. */
+
+.article-content {
+  overflow-wrap: anywhere;
+}
+.article-content > :first-child {
+  margin-top: 0;
+}
+.article-content p {
+  margin: 0 0 1.25em;
+}
+.article-content h2 {
+  font-size: 28px;
+  margin: 1.55em 0 0.6em;
+}
+.article-content h3 {
+  font-size: 23px;
+  margin: 1.45em 0 0.6em;
+}
+.article-content h4 {
+  font-size: 20px;
+}
+.article-content strong {
+  font-weight: 700;
+}
+.article-content a[data-preview],
+.article-content a.internal-link,
+.article-content a.wikilink {
+  background: var(--tag);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  border-radius: 3px;
+  padding: 0 2px;
+  font-weight: 650;
+}
+.article-content a[data-preview]:hover,
+.article-content a.internal-link:hover,
+.article-content a.wikilink:hover {
+  color: var(--pink);
+  background: #e84e6f1e;
+  text-decoration: none;
+}
+.article-content :is(ul, ol) {
+  padding-left: 1.45em;
+  margin: 0 0 1.25em;
+}
+.article-content li {
+  padding-left: 0.15em;
+  margin: 0.2em 0;
+}
+.article-content li > p {
+  margin: 0.25em 0 0.5em;
+}
+.article-content li :is(ul, ol) {
+  margin: 0.3em 0 0.6em;
+}
+.article-content hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2em 0;
+}
+.article-content blockquote {
+  border-left: 3px solid var(--blue);
+  margin: 1.4em 0;
+  padding: 0.05em 0 0.05em 19px;
+  color: var(--ink);
+}
+.article-content blockquote > :last-child {
+  margin-bottom: 0;
+}
+.article-content img {
+  display: block;
+  border-radius: 14px;
+  margin: 1.5em auto;
+  max-height: 820px;
+  object-fit: contain;
+}
+.article-content picture img {
+  margin: 0;
+}
+.article-content figure {
+  margin: 1.6em 0;
+}
+.article-content figure img {
+  margin: 0 auto;
+}
+.article-content figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 9px;
+  text-align: center;
+  line-height: 1.5;
+}
+.article-content video {
+  display: block;
+  margin: 1.4em auto;
+  max-height: 600px;
+  background: #141218;
+  border-radius: 12px;
+}
+.article-content audio {
+  display: block;
+  margin: 1.4em 0;
+}
+.article-content iframe {
+  display: block;
+  border: 0;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+}
+.article-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 1.5em 0;
+}
+.article-content :is(th, td) {
+  padding: 10px 14px;
+  text-align: left;
+  border: 1px solid var(--line);
+  min-width: 100px;
+}
+.article-content th {
+  background: var(--soft);
+  font-weight: 700;
+}
+.article-content code {
+  font-size: 0.83em;
+  padding: 0.15em 0.35em;
+  background: var(--soft);
+  border-radius: 4px;
+}
+.article-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 17px;
+  font-size: 13px;
+  line-height: 1.7;
+  tab-size: 2;
+}
+.article-content pre code {
+  padding: 0;
+  background: none;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.article-content pre.mermaid {
+  white-space: pre-wrap;
+  background: none;
+  border: 0;
+  padding: 8px 0;
+  text-align: center;
+}
+.article-content pre.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+.article-content .mermaid-error {
+  font: 13px/1.5 var(--body);
+  color: var(--muted);
+  background: var(--soft);
+  white-space: pre-wrap;
+}
+.article-content .callout {
+  --callout: var(--blue);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--callout);
+  border-radius: 0 9px 9px 0;
+  padding: 15px 19px;
+  margin: 1.4em 0;
+  background: var(--tag);
+  font-size: 16px;
+}
+.article-content .callout :is(.callout-title, summary) {
+  font-weight: 700;
+  color: var(--callout);
+  margin-bottom: 7px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.article-content .callout-title p {
+  margin: 0;
+}
+.article-content .callout > :last-child,
+.article-content .callout-content > :last-child {
+  margin-bottom: 0;
+}
+.article-content
+  :is(
+    .callout-warning,
+    .callout-caution,
+    .callout-danger,
+    .callout-bug,
+    .callout-failure,
+    [data-callout='warning'],
+    [data-callout='caution'],
+    [data-callout='danger']
+  ) {
+  --callout: var(--pink);
+  background: #e84e6f0c;
+}
+.article-content details.callout > summary {
+  cursor: pointer;
+}
+.article-content details.callout:not([open]) > summary {
+  margin-bottom: 0;
+}
+.article-content .callout-title svg {
+  width: 18px;
+  height: 18px;
+}
+.article-content mark {
+  background: #e84e6f47;
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+.article-content .footnotes {
+  font-size: 14px;
+  border-top: 1px solid var(--line);
+  margin-top: 36px;
+  padding-top: 22px;
+}
+.article-content sup {
+  font-size: 0.7em;
+  line-height: 0;
+}
+.article-content .broken-link {
+  color: var(--muted);
+  text-decoration: none;
+  cursor: help;
+}
+.article-content .media-embed {
+  margin: 1.5em 0;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--soft);
+}
+.article-content .media-embed[data-embed-ratio='9/16'] {
+  max-width: 380px;
+  margin-inline: auto;
+}
+.article-content .media-embed iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+@media (max-width: 800px) {
+  .article-content {
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  .article-content h2 {
+    font-size: 26px;
+  }
+  .article-content h3 {
+    font-size: 22px;
+  }
+  .article-content img {
+    border-radius: 11px;
+  }
+  .article-content blockquote {
+    padding-left: 15px;
+  }
+  .article-content .callout {
+    padding: 13px 15px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 380px) {
+  .article-content {
+    font-size: 16px;
+  }
+}
+
+@media print {
+  .article-content {
+    font-size: 11pt;
+  }
+}
+
+@media print {
+  .article-content a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@media print {
+  .article-content :is(pre, blockquote, figure) {
+    break-inside: avoid;
+  }
+}
+
+@media print {
+  .article-content img {
+    max-height: 500px;
+  }
+}
+
+@media print {
+  .article-content h2,
+  .article-content h3 {
+    break-after: avoid;
+  }
+}

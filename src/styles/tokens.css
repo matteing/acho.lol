@@ -1,0 +1,73 @@
+/* Local fonts and shared theme tokens. */
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/fonts/InstrumentSans-Variable.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/fonts/InstrumentSans-Italic-Variable.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/fonts/BricolageGrotesque-Variable.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --border: var(--line);
+}
+:root {
+  --paper: #fdf9f4;
+  --ink: #2f2c32;
+  --heading: #131318;
+  --muted: #6b646a;
+  --line: #e9e2df;
+  --blue: #24547b;
+  --pink: #a8294d;
+  --tag: #4daae12e;
+  --soft: #f3eee9;
+  --card: #fdf9f4;
+  --shadow: 0 16px 56px #27202b24;
+  --body: 'Instrument Sans', system-ui, sans-serif;
+  --display: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: 32px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #1b1a20;
+    --ink: #dfdae0;
+    --heading: #faf6f1;
+    --muted: #b0a8b3;
+    --line: #36313d;
+    --blue: #88bcdf;
+    --pink: #ed87a7;
+    --tag: #4daae12e;
+    --soft: #24212a;
+    --card: #24212a;
+    --shadow: 0 16px 56px #0006;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --paper: #1b1a20;
+  --ink: #dfdae0;
+  --heading: #faf6f1;
+  --muted: #b0a8b3;
+  --line: #36313d;
+  --blue: #88bcdf;
+  --pink: #ed87a7;
+  --tag: #4daae12e;
+  --soft: #24212a;
+  --card: #24212a;
+  --shadow: 0 16px 56px #0006;
+  color-scheme: dark;
+}

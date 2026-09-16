@@ -1,0 +1,50 @@
+---
+import type { Language } from '@/i18n/locales';
+import type { NavigationContext } from '@/lib/navigation';
+import { homeUrl } from '@/i18n/locales';
+import { sectionLabel, t } from '@/i18n/translate';
+
+interface Props {
+  lang: Language;
+  navigation: NavigationContext;
+}
+const { lang, navigation } = Astro.props;
+const { sections, translation, otherLanguage } = navigation;
+---
+
+<noscript>
+  <style is:global is:inline>
+    .mobile-actions,
+    .sidebar-tools {
+      display: none !important;
+    }
+  </style>
+  <nav class="no-js-navigation" aria-label={t(lang, 'navigation')} data-pagefind-ignore>
+    <details>
+      <summary>{t(lang, 'menu')}</summary>
+      <ul>
+        <li>
+          <a href={homeUrl(lang)}>{t(lang, 'home')}</a>
+        </li>
+        {sections.map((section) => (
+          <li>
+            <a href={section.url}>{sectionLabel(lang, section.section)}</a>
+          </li>
+        ))}
+        <li>
+          <a
+            href={translation?.url ?? homeUrl(otherLanguage)}
+            hreflang={otherLanguage}
+            lang={translation ? otherLanguage : lang}
+          >
+            {translation
+              ? otherLanguage === 'en'
+                ? 'English'
+                : 'Español'
+              : t(lang, 'otherLanguageHome')}
+          </a>
+        </li>
+      </ul>
+    </details>
+  </nav>
+</noscript>

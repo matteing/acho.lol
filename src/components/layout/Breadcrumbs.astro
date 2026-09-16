@@ -1,0 +1,27 @@
+---
+import type { WikiPage } from '@/lib/wiki/types';
+import { homeUrl } from '@/i18n/locales';
+import { sectionLabel, t } from '@/i18n/translate';
+import Icon from '@/components/ui/Icon.astro';
+
+interface Props {
+  page: WikiPage;
+  title: string;
+  section: WikiPage | undefined;
+}
+const { page, title, section } = Astro.props;
+---
+
+{page.kind !== 'home' && (
+  <nav class="breadcrumbs" aria-label={t(page.lang, 'home')} data-pagefind-ignore>
+    <a href={homeUrl(page.lang)}>{t(page.lang, 'home')}</a>
+    <Icon name="chevron" size={14} />
+    {section && section.id !== page.id && (
+      <>
+        <a href={section.url}>{sectionLabel(page.lang, page.section)}</a>
+        <Icon name="chevron" size={14} />
+      </>
+    )}
+    <span aria-current="page">{title}</span>
+  </nav>
+)}

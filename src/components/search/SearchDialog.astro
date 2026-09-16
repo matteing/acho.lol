@@ -1,0 +1,58 @@
+---
+import './search.css';
+import type { Language } from '@/i18n/locales';
+import { t } from '@/i18n/translate';
+import Icon from '@/components/ui/Icon.astro';
+interface Props {
+  lang: Language;
+}
+const { lang } = Astro.props;
+---
+
+<dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+  <h2 class="sr-only" id="search-title">
+    {t(lang, 'search')}
+  </h2>
+  <div class="search-input-row">
+    <form class="search-form" role="search">
+      <label class="sr-only" for="search-input">
+        {t(lang, 'search')}
+      </label>
+      <Icon name="search" size={21} />
+      <input
+        id="search-input"
+        type="search"
+        autocomplete="off"
+        placeholder={t(lang, 'searchPlaceholder')}
+      />
+    </form>
+    <button
+      class="icon-button search-close"
+      data-close-search
+      aria-label={t(lang, 'close')}
+      title={t(lang, 'close')}
+    >
+      <Icon name="close" size={18} />
+    </button>
+  </div>
+  <div class="search-panel">
+    <div class="search-toolbar">
+      <div class="search-filters" hidden>
+        <label class="search-section-filter">
+          <span class="sr-only">{t(lang, 'searchSection')}</span>
+          <select id="search-section">
+            <option value="">{t(lang, 'allSections')}</option>
+          </select>
+          <Icon name="chevron" size={13} />
+        </label>
+      </div>
+      <p class="search-status" role="status" aria-live="polite">
+        {t(lang, 'searchHint')}
+      </p>
+    </div>
+    <ol class="search-results"></ol>
+    <button class="search-more" hidden>
+      {t(lang, 'moreResults')}
+    </button>
+  </div>
+</dialog>

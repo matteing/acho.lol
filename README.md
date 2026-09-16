@@ -1,48 +1,60 @@
 # acho.lol
 
-La enciclopedia bori pop — un wiki irreverente, jocoso y 100% boricua dedicado a preservar la cultura popular puertorriqueña.
+A bilingual encyclopedia of Puerto Rican popular culture, built with Astro and
+plain Markdown. Spanish lives at `/`, English at `/en/`.
 
-## What's this?
+The site keeps acho.lol's original logo, typography, colors, and artwork. It
+includes wikilinks, backlinks, page previews, multilingual search, callouts,
+responsive images, inline video and embeds, and generated social cards. Pages
+and navigation are static HTML; small browser modules add the interactive parts.
 
-Este repositorio contiene el contenido de [acho.lol](https://acho.lol), una enciclopedia colaborativa que documenta jerga, dichos, memes, personas y controversias de la cultura puertorriqueña.
+## Quickstart
 
-El sitio se genera con [Quartz](https://quartz.jzhao.xyz/) y este repo se consume como git submodule.
+Use **Node.js 24 LTS, version 24.16.0 or newer within the 24.x line**, and
+**pnpm 11.19.0**. `.nvmrc` selects Node 24; `package.json` records the pnpm
+version. Python 3 is needed for output verification, but not development or builds.
 
-## Estructura / Structure
-
-```
-├── Palabras/        Slang and vocabulary / Jerga y vocabulario
-├── Dichos/          Sayings and expressions / Frases y expresiones
-├── Artículos/       Semantic hubs grouping related concepts / Hubs semánticos
-├── Personas/        Biographies and profiles / Biografías y perfiles
-├── Controversias/   The eternal Boricua debates / Las eternas peleas boricuas
-├── Pendientes/      Drafts and planned topics / Borradores y temas por escribir
-├── Meta/            Wiki docs, templates, tasks / Documentación, templates, tareas
-└── _attachments/    Shared images and media / Imágenes y media compartidos
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
-Cada carpeta de contenido puede tener su propia subcarpeta `_attachments/` para media específico a esa sección.
+Open [localhost:4321](http://localhost:4321). The first start generates responsive
+images and social cards. Editing Markdown rebuilds the complete content index,
+including backlinks on other pages.
 
-Each content folder may have its own `_attachments/` subfolder for section-specific media.
+Search uses an index generated from production HTML. Test it with:
 
-## Conceptos clave / Key concepts
+```sh
+pnpm build
+pnpm preview
+```
 
-### Semantic Hubs
+## Contribute
 
-**ES:** Los **Artículos** funcionan como "hubs semánticos" — páginas que agrupan términos relacionados bajo un concepto (e.g., "Las miles de maneras de decir que hay un caos"). Incluyen jerarquías de severidad, flowcharts de decisión y links a las entradas individuales.
+Write entries in `content/es/` and `content/en/`; paired translations share a
+stable `translationKey`. Preserve the site's Puerto Rican voice and documented
+sources. See [Contributing](CONTRIBUTING.md) and these guides:
 
-**EN:** **Artículos** serve as "semantic hubs" — pages that group related terms under a single concept (e.g., "The thousand ways to say there's chaos"). They include severity hierarchies, decision flowcharts, and links to individual entries.
+- [Authoring](docs/authoring.md): metadata, links, translations, Markdown, and media.
+- [Editorial workflow](docs/editorial-workflow.md): voice, evidence, and repository skills.
+- [Architecture](docs/architecture.md): project structure, content processing, and commands.
+- [Deployment](docs/deployment.md): Vercel settings, URLs, and release verification.
+- [Migration record](docs/migration.md): preserved content and known source gaps.
 
-### Wikilinks
+Run the full local checks before release:
 
-Todo el contenido usa wikilinks (`[[Página]]`) para crear una red navegable. Las entradas individuales enlazan a sus hubs, y los hubs enlazan a las entradas.
+```sh
+pnpm validate
+pnpm exec playwright install chromium
+pnpm test:browser
+```
 
-All content uses wikilinks (`[[Page]]`) to create a navigable network. Individual entries link to their hubs, and hubs link back to entries.
+`validate` includes formatting, linting, types, unit tests, content auditing, a
+production build, and Python checks of the generated links and SEO. Browser tests
+use that build and start the preview server automatically. An existing Chromium
+installation can be selected with `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
 
-## Cómo contribuir / How to contribute
-
-Ver [¿Cómo contribuyo?](Meta/¿Cómo%20contribuyo%3F.md) para la guía completa.
-
-## Licencia / License
-
-El contenido de este wiki es un esfuerzo comunitario para preservar la cultura popular puertorriqueña. No se permite copiar contenido con copyright ni incluir información personal sensible sin consentimiento.
+Application code is covered by [LICENSE](LICENSE). Preserve existing attribution
+and rights for editorial content, quoted material, artwork, and third-party
+assets. Font licenses are included in [public/fonts/licenses](public/fonts/licenses/).

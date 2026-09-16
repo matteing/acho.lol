@@ -1,0 +1,238 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
+  "framework": "astro",
+  "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/_media/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/_social/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/Códigos-de-la-calle/",
+      "destination": "/en/Palabras/C%C3%B3digos/",
+      "permanent": true
+    },
+    {
+      "source": "/Cabrona/",
+      "destination": "/en/Palabras/Cabr%C3%B3n/",
+      "permanent": true
+    },
+    {
+      "source": "/Cabroncito/",
+      "destination": "/en/Palabras/Cabr%C3%B3n/",
+      "permanent": true
+    },
+    {
+      "source": "/Cabrones/",
+      "destination": "/en/Palabras/Cabr%C3%B3n/",
+      "permanent": true
+    },
+    {
+      "source": "/Chotas/",
+      "destination": "/en/Palabras/Chota/",
+      "permanent": true
+    },
+    {
+      "source": "/Chotear/",
+      "destination": "/en/Palabras/Chota/",
+      "permanent": true
+    },
+    {
+      "source": "/Choteo/",
+      "destination": "/en/Palabras/Chota/",
+      "permanent": true
+    },
+    {
+      "source": "/Dejarse-coger-de-pendejo/",
+      "destination": "/en/Dichos/Coger-de-pendejo/",
+      "permanent": true
+    },
+    {
+      "source": "/El-calentón/",
+      "destination": "/en/Palabras/Calent%C3%B3n/",
+      "permanent": true
+    },
+    {
+      "source": "/Gilberto-De-Jesús/",
+      "destination": "/en/Personas/Mi-Pana-Gilito/",
+      "permanent": true
+    },
+    {
+      "source": "/Gilito/",
+      "destination": "/en/Personas/Mi-Pana-Gilito/",
+      "permanent": true
+    },
+    {
+      "source": "/Gongoló/",
+      "destination": "/Fauna/Gongol%C3%AD/",
+      "permanent": true
+    },
+    {
+      "source": "/Gongolón/",
+      "destination": "/Fauna/Gongol%C3%AD/",
+      "permanent": true
+    },
+    {
+      "source": "/Gongolo/",
+      "destination": "/Fauna/Gongol%C3%AD/",
+      "permanent": true
+    },
+    {
+      "source": "/Gungulén/",
+      "destination": "/Fauna/Gongol%C3%AD/",
+      "permanent": true
+    },
+    {
+      "source": "/La-combi-completa/",
+      "destination": "/en/Palabras/Combi/",
+      "permanent": true
+    },
+    {
+      "source": "/La-combi/",
+      "destination": "/en/Palabras/Combi/",
+      "permanent": true
+    },
+    {
+      "source": "/La-Iupi/",
+      "destination": "/en/Palabras/Iupi/",
+      "permanent": true
+    },
+    {
+      "source": "/La-UPR/",
+      "destination": "/en/Palabras/Iupi/",
+      "permanent": true
+    },
+    {
+      "source": "/Los-códigos/",
+      "destination": "/en/Palabras/C%C3%B3digos/",
+      "permanent": true
+    },
+    {
+      "source": "/Mal-rayo-te-parta/",
+      "destination": "/en/Dichos/Marrayo-parta/",
+      "permanent": true
+    },
+    {
+      "source": "/Maleanteo/",
+      "destination": "/en/Palabras/Maleante/",
+      "permanent": true
+    },
+    {
+      "source": "/Maleantes/",
+      "destination": "/en/Palabras/Maleante/",
+      "permanent": true
+    },
+    {
+      "source": "/Marrayoparta/",
+      "destination": "/en/Dichos/Marrayo-parta/",
+      "permanent": true
+    },
+    {
+      "source": "/Me-rayo-parta/",
+      "destination": "/en/Dichos/Marrayo-parta/",
+      "permanent": true
+    },
+    {
+      "source": "/Milpiés/",
+      "destination": "/Fauna/Gongol%C3%AD/",
+      "permanent": true
+    },
+    {
+      "source": "/Mota/",
+      "destination": "/en/Palabras/Pasto/",
+      "permanent": true
+    },
+    {
+      "source": "/No-me-cojas-de-pendejo/",
+      "destination": "/en/Dichos/Coger-de-pendejo/",
+      "permanent": true
+    },
+    {
+      "source": "/NPI/",
+      "destination": "/en/Dichos/Ni-puta-idea/",
+      "permanent": true
+    },
+    {
+      "source": "/Pa'l-calentón/",
+      "destination": "/en/Palabras/Calent%C3%B3n/",
+      "permanent": true
+    },
+    {
+      "source": "/Pasto-y-mota/",
+      "destination": "/en/Palabras/Pasto/",
+      "permanent": true
+    },
+    {
+      "source": "/Pelú/",
+      "destination": "/en/Palabras/Pel%C3%BAs/",
+      "permanent": true
+    },
+    {
+      "source": "/Pelúa/",
+      "destination": "/en/Palabras/Pel%C3%BAs/",
+      "permanent": true
+    },
+    {
+      "source": "/Pelúes/",
+      "destination": "/en/Palabras/Pel%C3%BAs/",
+      "permanent": true
+    },
+    {
+      "source": "/Se-comió-un-tatín/",
+      "destination": "/en/Dichos/Se-comi%C3%B3-un-tat%C3%ADn/",
+      "permanent": true
+    },
+    {
+      "source": "/Se-comió-un-Tatín/",
+      "destination": "/Dichos/Se-comi%C3%B3-un-tat%C3%ADn/",
+      "permanent": true
+    },
+    {
+      "source": "/Se-formó-la-de-los-pastores/",
+      "destination": "/en/Dichos/La-de-los-pastores/",
+      "permanent": true
+    },
+    {
+      "source": "/Se-formó-la-de-San-Quintín/",
+      "destination": "/en/Dichos/La-de-los-pastores/",
+      "permanent": true
+    },
+    {
+      "source": "/Se-formó-la-madre-de-los-tomates/",
+      "destination": "/en/Dichos/La-madre-de-los-tomates/",
+      "permanent": true
+    },
+    {
+      "source": "/Te-comiste-un-Tatín/",
+      "destination": "/en/Dichos/Se-comi%C3%B3-un-tat%C3%ADn/",
+      "permanent": true
+    }
+  ]
+}

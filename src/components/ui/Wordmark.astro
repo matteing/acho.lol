@@ -1,0 +1,20 @@
+---
+import { homeUrl } from '@/i18n/locales';
+import type { Language } from '@/i18n/locales';
+import { siteConfig } from '@/site.config';
+interface Props {
+  lang: Language;
+}
+const { lang } = Astro.props;
+---
+
+<a class="wordmark" href={homeUrl(lang)} aria-label={siteConfig.name}>
+  <img class="wordmark-light" src={siteConfig.logo} alt="¡acho!" width="176" height="68" />
+  <img
+    class="wordmark-dark"
+    src="/brand/acho-wordmark-reverse.svg"
+    alt="¡acho!"
+    width="176"
+    height="68"
+  />
+</a>

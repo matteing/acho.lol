@@ -1,0 +1,29 @@
+---
+import './article.css';
+import type { WikiPage } from '@/lib/wiki/types';
+import { t } from '@/i18n/translate';
+
+interface Props {
+  page: WikiPage;
+  title: string;
+}
+const { page, title } = Astro.props;
+const updated = page.lastmod
+  ? new Intl.DateTimeFormat(page.lang === 'es' ? 'es-PR' : 'en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }).format(new Date(page.lastmod))
+  : undefined;
+---
+
+<header class="article-header">
+  <h1 data-pagefind-meta="title">{title}</h1>
+  {page.kind !== 'home' && updated && (
+    <p class="article-meta" data-pagefind-ignore>
+      <span>{t(page.lang, 'updated')}</span>
+      <time datetime={page.lastmod}>{updated}</time>
+    </p>
+  )}
+</header>

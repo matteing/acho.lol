@@ -1,0 +1,63 @@
+---
+import type { WikiPage } from '@/lib/wiki/types';
+import { pageMetadata, socialLocale } from '@/lib/seo/metadata';
+import { structuredData } from '@/lib/seo/structured-data';
+import { absoluteUrl, siteConfig } from '@/site.config';
+
+interface Props {
+  page: WikiPage;
+  pages: WikiPage[];
+  title: string;
+  description: string;
+}
+
+const { page, pages, title, description } = Astro.props;
+const metadata = pageMetadata(page, pages, title);
+const { canonical, indexable, article, translations, defaultTranslation, image, published } =
+  metadata;
+const jsonld = structuredData(page, metadata, title, description);
+---
+
+<title>{title} · {siteConfig.name}</title>
+<meta name="description" content={description} />
+<meta
+  name="robots"
+  content={
+    indexable
+      ? 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'
+      : 'noindex,follow'
+  }
+/>
+{page.sourcePath && <link rel="canonical" href={canonical} />}
+{indexable && (
+  <>
+    {translations.map((p) => (
+      <link rel="alternate" hreflang={p.lang} href={absoluteUrl(p.url)} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={absoluteUrl(defaultTranslation.url)} />
+  </>
+)}
+<meta property="og:type" content={article ? 'article' : 'website'} />
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content={socialLocale(page.lang)} />
+{indexable &&
+  translations
+    .filter((p) => p.lang !== page.lang)
+    .map((p) => <meta property="og:locale:alternate" content={socialLocale(p.lang)} />)}
+<meta property="og:image" content={image.url} />
+<meta property="og:image:secure_url" content={image.url} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content={String(image.width)} />
+<meta property="og:image:height" content={String(image.height)} />
+<meta property="og:image:alt" content={image.alt} />
+{article && published && <meta property="article:published_time" content={published} />}
+{article && page.lastmod && <meta property="article:modified_time" content={page.lastmod} />}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image.url} />
+<meta name="twitter:image:alt" content={image.alt} />
+{indexable && <script is:inline type="application/ld+json" set:html={jsonld}></script>}

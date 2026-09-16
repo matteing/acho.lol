@@ -1,0 +1,125 @@
+/* Page shell, column layout, and viewport breakpoints. */
+.site-shell {
+  max-width: 1552px;
+  margin: 0 auto;
+  padding: 72px 40px 28px;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 760px) 215px;
+  gap: 48px;
+  align-items: start;
+}
+.site-sidebar,
+.article-sidebar {
+  position: sticky;
+  top: 38px;
+  max-height: calc(100vh - 68px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+.mobile-backlinks {
+  display: none;
+}
+.article-main {
+  min-width: 0;
+  outline: none;
+}
+.article-sidebar {
+  font-size: 14px;
+  display: grid;
+  gap: 37px;
+  padding-top: 5px;
+}
+@media (min-width: 1550px) {
+  .site-shell {
+    grid-template-columns: 240px minmax(0, 760px) 235px;
+    gap: 58px;
+    padding-inline: 32px;
+  }
+}
+@media (max-width: 1230px) {
+  .site-shell {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 40px;
+    padding: 52px 34px;
+  }
+  .article-sidebar {
+    display: none;
+  }
+  .mobile-backlinks {
+    display: block;
+    border-top: 1px solid var(--line);
+    margin-top: 40px;
+    padding-top: 27px;
+  }
+}
+@media (max-width: 800px) {
+  :root {
+    scroll-padding-top: 85px;
+  }
+  .site-shell {
+    display: block;
+    max-width: 740px;
+    padding: 32px 25px 28px;
+  }
+}
+@media (max-width: 380px) {
+  .site-shell {
+    padding-inline: 18px;
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 650;
+  margin: 3px 0 29px;
+  color: var(--muted);
+}
+.breadcrumbs a {
+  flex-shrink: 0;
+}
+.breadcrumbs [aria-current] {
+  display: inline;
+  overflow-wrap: anywhere;
+}
+.breadcrumbs svg {
+  color: var(--muted);
+  width: 12px;
+}
+@media (max-width: 800px) {
+  .breadcrumbs {
+    font-size: 12px;
+    margin: 0 0 25px;
+    gap: 5px;
+  }
+  .breadcrumbs [aria-current] {
+    display: none;
+  }
+  .breadcrumbs > svg:last-of-type {
+    display: none;
+  }
+}
+@media print {
+  .site-sidebar,
+  .article-sidebar,
+  .mobile-header,
+  .mobile-backlinks,
+  .article-footer,
+  .search-dialog,
+  .page-preview {
+    display: none !important;
+  }
+}
+
+@media print {
+  .site-shell {
+    display: block;
+    padding: 0;
+    max-width: none;
+  }
+}

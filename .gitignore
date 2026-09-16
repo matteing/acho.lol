@@ -1,10 +1,17 @@
-# Obsidian
-.obsidian/
-.octarine/
-.trash/
-
-# macOS
+node_modules/
+dist/
+.astro/
 .DS_Store
-
-# License
-LICENSE
+public/_media/
+public/media-manifest.json
+public/_social/
+public/social-manifest.json
+.cache/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+*.log
+.eslintcache
+.vercel/

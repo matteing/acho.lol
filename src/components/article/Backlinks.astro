@@ -1,0 +1,45 @@
+---
+import './article-sidebar.css';
+import type { WikiPage } from '@/lib/wiki/types';
+import { t, sectionLabel } from '@/i18n/translate';
+import Icon from '@/components/ui/Icon.astro';
+interface Props {
+  page: WikiPage;
+  pages: WikiPage[];
+}
+const { page, pages } = Astro.props;
+const backlinks = page.backlinks
+  .map((id) => pages.find((p) => p.id === id))
+  .filter((p): p is WikiPage => !!p)
+  .sort((a, b) => a.title.localeCompare(b.title, page.lang));
+---
+
+{backlinks.length > 0 && (
+  <section class="backlinks" aria-label={t(page.lang, 'backlinks')}>
+    <h2 class="article-rail-heading">{t(page.lang, 'backlinks')}</h2>
+    <ul>
+      {backlinks.map((link) => (
+        <li>
+          <a class="backlink-card" href={link.url} data-preview={link.url}>
+            <span class="backlink-body">
+              <span class="backlink-title" lang={link.lang}>
+                {link.title}
+              </span>
+              <span class="backlink-meta">
+                <span>{sectionLabel(page.lang, link.section) || t(page.lang, 'home')}</span>
+                {link.lang !== page.lang && (
+                  <span class="language-badge" lang="en">
+                    {link.lang.toUpperCase()}
+                  </span>
+                )}
+              </span>
+            </span>
+            <span class="backlink-arrow">
+              <Icon name="arrow" size={14} />
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

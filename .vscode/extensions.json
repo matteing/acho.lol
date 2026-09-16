@@ -1,5 +1,7 @@
 {
   "recommendations": [
-    "foam.foam-vscode"
+    "astro-build.astro-vscode",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
   ]
 }

@@ -1,0 +1,171 @@
+.table-of-contents .article-rail-heading,
+.backlinks .article-rail-heading {
+  margin: 0 0 13px;
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.table-of-contents ol {
+  display: grid;
+  gap: 1px;
+  margin: 0 0 0 2px;
+  padding: 0;
+  border-left: 1px solid var(--line);
+  list-style: none;
+}
+
+.table-of-contents li {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.table-of-contents a.toc-link {
+  position: relative;
+  display: block;
+  padding: 6px 0 6px 14px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.table-of-contents .toc-nested a.toc-link {
+  padding-left: 26px;
+  font-size: 12px;
+}
+
+.table-of-contents a.toc-link::before {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: -2px;
+  width: 3px;
+  border-radius: 3px;
+  background: transparent;
+  content: '';
+}
+
+.table-of-contents a.toc-link:hover,
+.table-of-contents a.toc-link[aria-current] {
+  color: var(--blue);
+}
+
+.table-of-contents a.toc-link[aria-current] {
+  font-weight: 600;
+}
+
+.table-of-contents a.toc-link[aria-current]::before {
+  background: var(--blue);
+}
+
+.backlinks ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.backlinks li {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.backlinks a.backlink-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 14px;
+  align-items: start;
+  gap: 9px;
+  padding: 12px 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--blue);
+  background: transparent;
+  line-height: 1.5;
+  transition:
+    border-color 140ms,
+    background-color 140ms;
+}
+
+.backlinks a.backlink-card:hover {
+  border-color: color-mix(in srgb, var(--blue) 35%, var(--line));
+  background: color-mix(in srgb, var(--tag) 25%, transparent);
+}
+
+.table-of-contents a.toc-link[href]:hover,
+.backlinks a.backlink-card[href]:hover,
+.table-of-contents a.toc-link,
+.backlinks a.backlink-card {
+  text-decoration: none;
+}
+
+.backlink-body {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+}
+
+.backlink-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.backlink-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.backlink-arrow {
+  padding-top: 1px;
+  opacity: 0.4;
+  transition:
+    opacity 140ms,
+    transform 140ms;
+}
+
+.backlink-card:hover .backlink-arrow {
+  opacity: 0.8;
+  transform: translateX(2px);
+}
+
+.backlinks .language-badge {
+  padding: 0 4px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (max-width: 1230px) and (min-width: 600px) {
+  .mobile-backlinks .backlinks ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1230px) {
+  .mobile-backlinks .backlinks .article-rail-heading {
+    margin-bottom: 14px;
+  }
+
+  .mobile-backlinks .backlink-title {
+    font-size: 14px;
+  }
+}

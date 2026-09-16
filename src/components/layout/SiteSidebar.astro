@@ -1,0 +1,44 @@
+---
+import './navigation.css';
+import type { WikiPage } from '@/lib/wiki/types';
+import type { NavigationContext } from '@/lib/navigation';
+import { t } from '@/i18n/translate';
+import Icon from '@/components/ui/Icon.astro';
+import Wordmark from '@/components/ui/Wordmark.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import SectionNavigation from './SectionNavigation.astro';
+
+interface Props {
+  page: WikiPage;
+  pages: WikiPage[];
+  navigation: NavigationContext;
+}
+const { page, pages, navigation } = Astro.props;
+---
+
+<aside class="site-sidebar" id="site-sidebar" data-pagefind-ignore>
+  <div class="sidebar-top">
+    <Wordmark lang={page.lang} />
+    <button class="icon-button mobile-close" data-close-menu aria-label={t(page.lang, 'close')}>
+      <Icon name="close" />
+    </button>
+  </div>
+  <LanguageSwitcher page={page} navigation={navigation} />
+  <div class="sidebar-tools">
+    <button class="search-trigger" data-open-search>
+      <Icon name="search" size={18} />
+      <span>{t(page.lang, 'search')}</span>
+      <kbd>⌘ K</kbd>
+    </button>
+    <button
+      class="icon-button theme-toggle"
+      data-toggle-theme
+      aria-label={t(page.lang, 'theme')}
+      title={t(page.lang, 'theme')}
+    >
+      <Icon name="sun" size={19} />
+    </button>
+  </div>
+  <SectionNavigation page={page} pages={pages} />
+  <p class="sidebar-note">{t(page.lang, 'footer')}</p>
+</aside>
