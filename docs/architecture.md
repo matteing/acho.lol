@@ -184,3 +184,5 @@ Astro can run servers in the background in agent environments. Use
 foreground servers stop with Ctrl-C. The [deployment guide](deployment.md) covers
 host configuration and the [migration record](migration.md) documents the source
 snapshot. Normal builds never read the original Quartz checkout.
+
+Linting and the commit hook run `astro sync` first, so generated content types are available even in a fresh checkout. These types stay ignored by Git.

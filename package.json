@@ -16,8 +16,8 @@
     "verify:seo": "python3 scripts/verify-seo.py",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "lint": "eslint . --max-warnings=0",
-    "lint:fix": "eslint . --fix --max-warnings=0",
+    "lint": "astro sync && eslint . --max-warnings=0",
+    "lint:fix": "astro sync && eslint . --fix --max-warnings=0",
     "prepare": "node scripts/prepare-hooks.mjs",
     "validate": "pnpm format:check && pnpm lint && pnpm check && pnpm test && pnpm audit:content && pnpm build && pnpm verify && pnpm verify:seo"
   },
