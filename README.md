@@ -11,7 +11,7 @@ and navigation are static HTML; small browser modules add the interactive parts.
 ## Quickstart
 
 Use **Node.js 24 LTS, version 24.16.0 or newer within the 24.x line**, and
-**pnpm 11.19.0**. `.nvmrc` selects Node 24; `package.json` records the pnpm
+**pnpm 11.19.0**. `.node-version` selects Node 24; `package.json` records the pnpm
 version. Python 3 is needed for output verification, but not development or builds.
 
 ```sh
@@ -34,7 +34,7 @@ pnpm preview
 
 Write entries in `content/es/` and `content/en/`; paired translations share a
 stable `translationKey`. Preserve the site's Puerto Rican voice and documented
-sources. See [Contributing](CONTRIBUTING.md) and these guides:
+sources. See [Contributing](.github/CONTRIBUTING.md) and these guides:
 
 - [Authoring](docs/authoring.md): metadata, links, translations, Markdown, and media.
 - [Editorial workflow](docs/editorial-workflow.md): voice, evidence, and repository skills.

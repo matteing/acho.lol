@@ -95,7 +95,7 @@ Callouts, fenced Mermaid diagrams, tables, and footnotes are supported.
 ## Validation and repository skills
 
 Run `pnpm audit:content` for current links, media, translation gaps, and URL
-preservation. Existing omissions are documented in `content-known-issues.json`;
+preservation. Existing omissions are documented in `config/content-known-issues.json`;
 do not add new exceptions merely to hide broken links. Run `git diff --check`
 when working in a Git checkout.
 

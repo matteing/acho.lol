@@ -22,4 +22,4 @@ SOFTWARE.
 
 Scope: this license applies to the application code, tooling, tests, and
 technical documentation. Editorial content, branding, and media assets are
-excluded. See THIRD_PARTY_NOTICES.md for those materials and bundled fonts.
+excluded. See docs/THIRD_PARTY_NOTICES.md for those materials and bundled fonts.

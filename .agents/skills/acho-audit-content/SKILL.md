@@ -20,7 +20,7 @@ Treat an audit as read-only unless fixes are requested. Read
 3. Run `pnpm audit:content` for the actual Markdown parser's link, heading,
    asset, translation, and baseline URL checks. It ignores literal code examples
    and distinguishes known source omissions from new errors. Do not expand
-   `content-known-issues.json` just to make a failing audit pass.
+   `config/content-known-issues.json` just to make a failing audit pass.
 4. Inspect ordinary links as well as wikilinks. Separate ambiguous titles from
    missing destinations and intentional cross-language references from mistakes.
 5. Report stale editorial status, uncertainty callouts that no longer fit,

@@ -7,6 +7,9 @@ generates HTML. There is no database, runtime content service, or client framewo
 ## Project structure
 
 ```text
+config/
+  content-known-issues.json    Documented source exceptions
+  eslint.config.mjs           Type-aware lint configuration
 content/
   es/                         Spanish Markdown
   en/                         English Markdown
@@ -47,12 +50,21 @@ scripts/
   migration/                 One-time importer and original URL inventories
   assets/fonts/              Static fonts used to render share cards
 tests/
+  playwright.config.ts       Browser runner and preview-server configuration
   unit/                      Content, routing, SEO, and card tests
   browser/                   Production-browser regressions
   fixtures/                  Shared test data
 docs/                         Contributor and operational guides
+.github/                      Contribution/security policies and GitHub automation
 .agents/skills/               Six editorial workflows for coding agents
 ```
+
+The root keeps the project entry points: README, agent guidance, license, package
+and lock files, and the conventional Astro, TypeScript, and Vercel configuration
+files. `.node-version` selects the shared Node major for development and CI.
+Prettier and lint-staged settings live in `package.json`; ESLint configuration
+lives in `config/`, alongside the content audit exceptions. Playwright's
+configuration lives with its tests. Editorial Markdown remains in `content/`.
 
 Keep markup, feature-specific CSS, and browser behavior together in the relevant
 component folder. Shared styling stays in `src/styles/`; `src/scripts/site.ts`
@@ -78,7 +90,7 @@ Resolution is language-aware. Unqualified wikilinks stay in the source language;
 explicit language prefixes and absolute public URLs can cross languages.
 Translation groups contain only actual counterparts. Duplicate routes, ambiguous
 links, and new missing targets are errors. Exact inherited exceptions live in
-`content-known-issues.json` and render as labeled text rather than broken links.
+`config/content-known-issues.json` and render as labeled text rather than broken links.
 
 `loader.ts` publishes the finished snapshot to Astro's `wiki` collection. In
 development, additions, edits, deletions, and manifest changes rebuild the whole
@@ -152,7 +164,7 @@ fallback. [Authoring](authoring.md) explains date and description conventions.
 ## Toolchain and commands
 
 Use Node 24 LTS at least 24.16.0 and pnpm 11.19.0. The package also permits Node
-26.3.0 and newer, but `.nvmrc` and the documented deployment setup use 24 LTS.
+26.3.0 and newer, but `.node-version` and the documented deployment setup use 24 LTS.
 Astro is pinned to 7.3.2. The lockfile resolves TypeScript to 6.0.3: the installed
 `typescript-eslint` 8.70.0 declares support for TypeScript `>=4.8.4 <6.1.0`, so the
 TypeScript 7 upgrade is deferred until the lint toolchain supports it. The

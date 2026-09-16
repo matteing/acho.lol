@@ -83,7 +83,7 @@ export async function prepareSocialCards(options: Options = {}): Promise<SocialC
     const index = await buildWikiIndex({
       contentDir: path.join(project, 'content'),
       publicDir,
-      knownIssuesFile: path.join(project, 'content-known-issues.json'),
+      knownIssuesFile: path.join(project, 'config/content-known-issues.json'),
     });
     const errors = index.diagnostics.filter((diagnostic) => diagnostic.severity === 'error');
     if (errors.length)

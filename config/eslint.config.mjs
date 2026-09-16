@@ -1,9 +1,12 @@
 import js from '@eslint/js';
+import { fileURLToPath } from 'node:url';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import astro from 'eslint-plugin-astro';
 import prettier from 'eslint-config-prettier/flat';
 import globals from 'globals';
 import ts from 'typescript-eslint';
+
+const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 
 export default defineConfig(
   globalIgnores([
@@ -25,7 +28,7 @@ export default defineConfig(
     files: ['**/*.ts'],
     extends: [ts.configs.recommendedTypeChecked, ts.configs.stylisticTypeChecked],
     languageOptions: {
-      parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname },
+      parserOptions: { projectService: true, tsconfigRootDir: projectRoot },
     },
     rules: {
       '@typescript-eslint/consistent-type-imports': 'error',

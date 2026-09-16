@@ -12,7 +12,7 @@ export function wikiLoader(): Loader {
       const root = fileURLToPath(config.root);
       const contentDir = path.join(root, 'content');
       const publicDir = fileURLToPath(config.publicDir);
-      const knownIssuesFile = path.join(root, 'content-known-issues.json');
+      const knownIssuesFile = path.join(root, 'config/content-known-issues.json');
       async function refresh() {
         const index = await buildWikiIndex({ contentDir, publicDir, knownIssuesFile });
         const errors = index.diagnostics.filter((d) => d.severity === 'error');

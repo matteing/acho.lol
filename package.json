@@ -10,14 +10,14 @@
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check",
     "test": "node --import tsx --test tests/unit/*.test.ts",
-    "test:browser": "playwright test",
+    "test:browser": "playwright test --config tests/playwright.config.ts",
     "verify": "python3 scripts/verify-build.py",
     "audit:content": "node --import tsx scripts/audit-content.ts",
     "verify:seo": "python3 scripts/verify-seo.py",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "lint": "astro sync && eslint . --max-warnings=0",
-    "lint:fix": "astro sync && eslint . --fix --max-warnings=0",
+    "lint": "astro sync && eslint --config config/eslint.config.mjs . --max-warnings=0",
+    "lint:fix": "astro sync && eslint --config config/eslint.config.mjs . --fix --max-warnings=0",
     "prepare": "node scripts/prepare-hooks.mjs",
     "validate": "pnpm format:check && pnpm lint && pnpm check && pnpm test && pnpm audit:content && pnpm build && pnpm verify && pnpm verify:seo"
   },
@@ -67,5 +67,28 @@
     "typescript-eslint": "8.70.0"
   },
   "description": "A bilingual encyclopedia of Puerto Rican popular culture, built with Astro.",
-  "license": "MIT"
+  "license": "MIT",
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-astro"
+    ],
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "overrides": [
+      {
+        "files": "*.astro",
+        "options": {
+          "parser": "astro"
+        }
+      }
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,js,mjs,astro}": [
+      "prettier --write",
+      "eslint --config config/eslint.config.mjs --fix --max-warnings=0"
+    ],
+    "*.{css,json,yml,yaml,md}": "prettier --write --ignore-unknown"
+  }
 }

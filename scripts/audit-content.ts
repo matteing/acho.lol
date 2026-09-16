@@ -3,7 +3,7 @@ import { buildWikiIndex } from '../src/lib/wiki/build-index';
 import { z } from 'zod';
 import { siteConfig } from '../src/site.config';
 
-const index = await buildWikiIndex({ knownIssuesFile: 'content-known-issues.json' });
+const index = await buildWikiIndex({ knownIssuesFile: 'config/content-known-issues.json' });
 const baselineData: unknown = JSON.parse(
   await readFile(new URL('./migration/baseline-urls.json', import.meta.url), 'utf8'),
 );

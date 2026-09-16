@@ -63,7 +63,7 @@ previews on hover or keyboard focus; touch devices use ordinary navigation.
 
 New missing or ambiguous destinations and missing headings fail builds. The
 15 unwritten references inherited from Quartz are documented in
-`content-known-issues.json`; they display as labeled text. Remove an exception
+`config/content-known-issues.json`; they display as labeled text. Remove an exception
 when its target is written. The migration also records two missing English Fauna
 counterparts. See [Migration](migration.md) for the original inventory.
 
@@ -166,7 +166,7 @@ The audit checks content relationships and original URLs; the build catches new
 broken references; output verification checks actual HTML, assets, metadata, and
 cards. Python 3 is required for the two `verify` commands. Use `pnpm preview` to
 check production search. Run the broader checks in
-[Contributing](../CONTRIBUTING.md) when changing application code.
+[Contributing](../.github/CONTRIBUTING.md) when changing application code.
 
 Edit `content/` and original assets, not `dist/` or generated manifests. Normal
 editing does not use the importer in `scripts/migration/`; rerunning it overwrites

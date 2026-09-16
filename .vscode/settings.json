@@ -1,7 +1,12 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[astro]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "eslint.validate": ["javascript", "typescript", "astro"],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.options": {
+    "overrideConfigFile": "config/eslint.config.mjs"
+  }
 }
