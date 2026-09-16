@@ -52,7 +52,9 @@ domain should update that configuration and `public/robots.txt` together.
 Connect `acho.lol` to the Vercel project and apply the DNS records supplied by
 Vercel for that project. Confirm the domain serves the intended production
 deployment over HTTPS before checking share cards with external crawlers.
-Localhost cannot be fetched by those crawlers.
+Localhost cannot be fetched by those crawlers. The apex domain serves the site;
+`www.acho.lol` permanently redirects to `acho.lol` with HTTP 308 so hosting and
+canonical URLs agree.
 
 Spanish URLs have no language prefix; English URLs start with `/en/`. Public
 content URLs use trailing slashes. The migration preserves all 112 original
@@ -63,7 +65,10 @@ content URLs apart from that normalization. The source inventory is in
 URLs. Their observed destinations are recorded in
 `scripts/migration/legacy-redirects.json`, which Astro also reads to generate
 static redirect fallbacks. Some historical root aliases already led to English
-entries; those destinations are preserved.
+entries; those destinations are preserved. Both `source` and `destination` paths
+in Vercel rules use percent-encoded Unicode. The edge router matches encoded
+request paths, so a literal accented source would miss its HTTP redirect and
+serve the static HTML fallback instead.
 
 When moving an entry, keep its stable translation key, add its old URL to the
 new page's frontmatter `redirects`, and add a matching permanent redirect to

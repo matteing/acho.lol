@@ -1,8 +1,37 @@
-import type { Root } from 'mdast';
+import type { PhrasingContent, Root } from 'mdast';
 import type { Extension as MarkdownExtension } from 'mdast-util-from-markdown';
 import type { Code, Extension, State, Tokenizer } from 'micromark-util-types';
 import type { Plugin } from 'unified';
-import type {} from './ast';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import { text } from './ast';
+
+const labelParser = unified().use(remarkParse).use(remarkGfm);
+
+/** Labels allow inline formatting without introducing nested links or HTML. */
+export function parseWikilinkLabel(label: string): PhrasingContent[] {
+  const tree = labelParser.parse(label);
+  const paragraph = tree.children[0];
+  if (tree.children.length !== 1 || paragraph?.type !== 'paragraph') return [text(label)];
+
+  function inline(node: PhrasingContent): PhrasingContent {
+    switch (node.type) {
+      case 'text':
+      case 'inlineCode':
+      case 'break':
+        return node;
+      case 'emphasis':
+      case 'strong':
+      case 'delete':
+        return { ...node, children: node.children.map(inline) };
+      default:
+        return text(label.slice(node.position?.start.offset, node.position?.end.offset));
+    }
+  }
+
+  return paragraph.children.map(inline);
+}
 
 /** Micromark keeps wiki syntax out of escaped text, fenced code, and HTML. */
 export const remarkWikilinks: Plugin<[], Root> = function () {

@@ -10,7 +10,7 @@ import { plainText } from './read-content';
 import type { ResolveLink } from './resolve-links';
 import { renderDirective, renderImage, sanitizationSchema, type MediaContext } from './media';
 import type { Language, ReportDiagnostic, WikiPage } from './types';
-import { splitWikilink } from './wikilinks';
+import { parseWikilinkLabel, splitWikilink } from './wikilinks';
 
 interface RenderContext {
   resolve: ResolveLink;
@@ -41,7 +41,7 @@ export async function renderPage(
 
     if (node.type === 'wikiLink') {
       const { target, label } = splitWikilink(node.value);
-      node = { type: 'link', url: target, children: [text(label)] };
+      node = { type: 'link', url: target, children: parseWikilinkLabel(label) };
       wiki = true;
       replace(node);
     } else if (node.type === 'linkReference' || node.type === 'imageReference') {

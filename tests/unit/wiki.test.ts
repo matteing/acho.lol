@@ -112,6 +112,30 @@ void test('heading links validate anchors and duplicate heading slugs; self link
   assert.match(index.pages.find((p) => p.id === 'es/index')!.html, /#caf%C3%A9-1/);
 });
 
+void test('wikilink labels render inline Markdown without changing destinations or creating nested links', async (t) => {
+  const f = await fixture(t, {
+    'en/index.md':
+      'Read [[en/Palabras/Códigos|*los códigos*]], [[en/Palabras/Códigos|**strong _words_**]], [[en/Palabras/Códigos|~~old~~ `code`]], and [[en/Palabras/Códigos|\\*literal\\*]].\n\n[[en/Palabras/Códigos|<https://example.com>]] [[en/Palabras/Códigos|<em>literal HTML</em>]]',
+    'en/Palabras/Códigos.md': 'The code.',
+  });
+  const index = await f.build();
+  assert.deepEqual(index.diagnostics, []);
+  const home = index.pages.find((page) => page.id === 'en/index')!;
+  const destination = index.pages.find((page) => page.id === 'en/Palabras/Códigos')!;
+  assert.deepEqual(home.outgoing, [destination.id]);
+  assert.deepEqual(destination.backlinks, [home.id]);
+  assert.match(home.html, /<em>los códigos<\/em><\/a>/);
+  assert.match(home.html, /<strong>strong <em>words<\/em><\/strong><\/a>/);
+  assert.match(home.html, /<del>old<\/del> <code>code<\/code><\/a>/);
+  assert.match(home.html, />\*literal\*<\/a>/);
+  assert.match(home.html, /&#x3C;https:\/\/example.com><\/a>/);
+  assert.match(home.html, /&#x3C;em>literal HTML&#x3C;\/em><\/a>/);
+  assert.equal((home.html.match(/<a /g) ?? []).length, 6);
+  assert.equal((home.html.match(/href="\/en\/Palabras\/C%C3%B3digos\/"/g) ?? []).length, 6);
+  assert.match(home.excerpt, /^Read los códigos, strong words, old code, and \*literal\*\./);
+  assert.match(home.description, /^Read los códigos, strong words, old code, and \*literal\*\./);
+});
+
 void test('missing media and unsafe links fail without emitting broken media or unsafe markup', async (t) => {
   const f = await fixture(t, {
     'es/index.md':

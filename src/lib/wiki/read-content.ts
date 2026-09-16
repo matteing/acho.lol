@@ -11,7 +11,7 @@ import remarkDirective from 'remark-directive';
 import { visit } from 'unist-util-visit';
 import { publicUrl } from './urls';
 import { frontmatterSchema } from './schema';
-import { remarkWikilinks, splitWikilink } from './wikilinks';
+import { parseWikilinkLabel, remarkWikilinks, splitWikilink } from './wikilinks';
 import type { ReportDiagnostic, WikiPage } from './types';
 
 export interface ParsedPage {
@@ -184,7 +184,8 @@ function stripEditorialMarkers(
 }
 
 export function plainText(node: Nodes): string {
-  if (node.type === 'wikiLink') return splitWikilink(node.value).label;
+  if (node.type === 'wikiLink')
+    return parseWikilinkLabel(splitWikilink(node.value).label).map(plainText).join('');
   if (
     node.type === 'code' ||
     node.type === 'html' ||
@@ -209,7 +210,7 @@ export function documentExcerpt(tree: Root, limit = 220): string {
     'footnoteReference',
   ]);
   const extract = (node: Nodes): string => {
-    if (node.type === 'wikiLink') return splitWikilink(node.value).label;
+    if (node.type === 'wikiLink') return plainText(node);
     if (ignored.has(node.type) || node.type.endsWith('Directive')) return '';
     if (node.type === 'text') return node.value.replace(/^\[![\w-]+\][+-]?[ \t]*/, '');
     if (node.type === 'break') return ' ';
