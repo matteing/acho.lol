@@ -25,7 +25,7 @@
     "node": "^24.16.0 || >=26.3.0"
   },
   "dependencies": {
-    "astro": "7.3.2",
+    "astro": "7.3.5",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "mdast-util-to-string": "^4.0.0",
